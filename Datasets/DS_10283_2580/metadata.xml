@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mets:METS xmlns:mets="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/TR/xlink/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dim="http://www.dspace.org/xmlns/dspace/dim" OBJEDIT="/admin/item?itemID=131" OBJID="/handle/10672/62" PROFILE="DSPACE METS SIP Profile 1.0" LABEL="DSpace Item" ID="hdl:10672/62">
+<mets:dmdSec GROUPID="group_dmd_0" ID="dmd_1">
+<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="DIM">
+<mets:xmlData>
+<dim:dim dspaceType="ITEM">
+<dim:field element="contributor" language="" mdschema="dc">Reid, James</dim:field>
+<dim:field element="contributor" qualifier="other" language="en" mdschema="dc">University of Edinburgh</dim:field>
+<dim:field element="coverage" qualifier="spatial" language="en" mdschema="dc">northlimit=58.9669;eastlimit=-2.5128;southlimit=54.8581;westlimit=-6.361;</dim:field>
+<dim:field element="date" qualifier="accessioned" language="" mdschema="dc">2010-09-03T13:01:50Z</dim:field>
+<dim:field element="date" qualifier="available" language="" mdschema="dc">2010-09-03T13:01:50Z</dim:field>
+<dim:field element="date" qualifier="issued" language="" mdschema="dc">2010-09-03</dim:field>
+<dim:field element="identifier" language="" mdschema="dc">http://www.sharegeo.ac.uk/bitstream/handle/10672/62/ScottishDistilleries.zip?sequence=1</dim:field>
+<dim:field element="identifier" qualifier="uri" language="" mdschema="dc">http://hdl.handle.net/10672/62</dim:field>
+<dim:field element="description" language="en" mdschema="dc">adapted from original GPX POI</dim:field>
+<dim:field element="description" qualifier="abstract" language="en" mdschema="dc">The locations of Scottish whisky brewers</dim:field>
+<dim:field element="format" language="en" mdschema="dc">ESRI Shapefile</dim:field>
+<dim:field element="language" qualifier="iso" language="en" mdschema="dc">en</dim:field>
+<dim:field element="rights" language="en" mdschema="dc">This data is made available under the Public Domain Dedication and License v1.0 whose full text can be found at http://www.opendatacommons.org/licenses/pddl/1.0/</dim:field>
+<dim:field element="subject" language="en" mdschema="dc">whisk[e]y</dim:field>
+<dim:field element="subject" qualifier="classification" language="en" mdschema="dc">Location</dim:field>
+<dim:field element="title" language="en" mdschema="dc">Scottish Distilleries</dim:field>
+<dim:field element="type" language="en" mdschema="dc">GIS vector data</dim:field>
+</dim:dim>
+</mets:xmlData>
+</mets:mdWrap>
+</mets:dmdSec>
+<mets:fileSec>
+<mets:fileGrp USE="CONTENT">
+<mets:file CHECKSUMTYPE="MD5" GROUPID="group_file_176" ID="file_176" MIMETYPE="application/zip" SIZE="3021" CHECKSUM="03ae67ca015f2443dd484324abfb8d46">
+<mets:FLocat LOCTYPE="URL" xlink:title="ScottishDistilleries.zip" xlink:type="locator" xlink:href="/bitstream/handle/10672/62/ScottishDistilleries.zip?sequence=1"/>
+</mets:file>
+</mets:fileGrp>
+<mets:fileGrp USE="LICENSE">
+<mets:file CHECKSUMTYPE="MD5" GROUPID="group_file_177" ID="file_177" MIMETYPE="text/plain; charset=utf-8" SIZE="127" CHECKSUM="44d9ed4f6902860fbb92bf26df40fc3b">
+<mets:FLocat LOCTYPE="URL" xlink:title="license.txt" xlink:type="locator" xlink:href="/bitstream/handle/10672/62/license.txt?sequence=2"/>
+</mets:file>
+</mets:fileGrp>
+</mets:fileSec>
+<mets:structMap LABEL="DSpace" TYPE="LOGICAL">
+<mets:div DMDID="dmd_1" TYPE="DSpace Item">
+<mets:div ID="div_2" TYPE="DSpace Content Bitstream">
+<mets:fptr FILEID="file_176"/>
+</mets:div>
+</mets:div>
+</mets:structMap>
+</mets:METS>
