@@ -26,31 +26,34 @@ partial_df.to_csv("Partial_Distilery_Data.csv")
 # Whisky feature labels
 feature_names = ['Body','Sweetness','Smoky','Medicinal','Tobacco','Honey','Spicy','Winey','Nutty','Malty','Fruity','Floral']
 
-# y = np.ravel(y)
-# Train a RandomForestClassifier
-clf = RandomForestClassifier(n_estimators=1000)
-clf.fit(whisky_regions_features, whisky_regions_labels)
 
 
-# Get feature importances
-importances = clf.feature_importances_
+from scipy import spatial
 
+lowlands = whisky_regions[['Lowlands']]
 
-plt.figure(figsize=(10, 6))
-plt.bar(feature_names, importances)
-plt.show()
+print(lowlands)
 exit()
 
-# from scipy import spatial
+result1 = 1 - spatial.distance.cosine(d1_a, d2_a)
+result2 = 1 - spatial.distance.cosine(d1_b, d2_b)
 
-# d1_a = [2,3,1]
-# d1_b = [1,0,1,1,1,0,1,1,2]
-# d2_a = [2,1,2]
-# d2_b = [1,0,1,1,0,2,1,1,1]
+r = result1 + result2 - 1
 
-# result1 = 1 - spatial.distance.cosine(d1_a, d2_a)
-# result2 = 1 - spatial.distance.cosine(d1_b, d2_b)
+print(r)
 
-# r = result1 + result2 - 1
 
-# print(r)
+# # y = np.ravel(y)
+# # Train a RandomForestClassifier
+# clf = RandomForestClassifier(n_estimators=1000)
+# clf.fit(whisky_regions_features, whisky_regions_labels)
+
+
+# # Get feature importances
+# importances = clf.feature_importances_
+
+
+# plt.figure(figsize=(10, 6))
+# plt.bar(feature_names, importances)
+# plt.show()
+# exit()
