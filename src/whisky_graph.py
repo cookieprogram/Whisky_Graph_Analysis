@@ -62,15 +62,21 @@ region_labels_list = whisky_regions_labels['Region'].tolist()
 
 
 results = []
+full_results = [[]]
 i = 0
 
 for whisky_list_a in whisky_region_values_list:
-    results.append(region_labels_list[i])
+    
+    # results.append(region_labels_list[i])
     for whisky_list_b in whisky_region_values_list:
         result = 1 - spatial.distance.cosine(whisky_list_a, whisky_list_b)
+        # results.append(result)
         results.append(result)
+    # full_results.append(results)    
     i +=1
-print(results)        
+
+normalizedData = (results-np.min(results))/(np.max(results)-np.min(results))    
+print(normalizedData)
 
 
 
