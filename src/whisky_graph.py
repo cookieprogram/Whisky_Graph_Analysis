@@ -13,6 +13,7 @@ import geopy.distance
 whisky_regions = pd.read_csv("../datasets/Whisky_Regions_Dataset.csv")
 whisky_regions_features = whisky_regions[['Body','Sweetness','Smokey','Medicinal','Tobacco','Honey','Spicy','Winey','Nutty','Malty','Fruity','Floral']]
 whisky_regions_labels = whisky_regions[['Region']]
+whisky_regions_reduced =  whisky_regions[['Region','Body','Sweetness','Smokey','Medicinal','Tobacco','Honey','Spicy','Winey','Nutty','Malty','Fruity','Floral']]
 
 # Read Whisky Distileries Dataset
 whisky_distileries = pd.read_csv("../datasets/whisky_distilieries.csv")
@@ -30,17 +31,48 @@ feature_names = ['Body','Sweetness','Smoky','Medicinal','Tobacco','Honey','Spicy
 
 from scipy import spatial
 
-lowlands = whisky_regions[['Lowlands']]
+lowlands = whisky_regions_reduced.loc[whisky_regions_reduced['Region'] == 'Lowlands']
+highlands = whisky_regions_reduced.loc[whisky_regions_reduced['Region'] == 'Highlands']
+islay = whisky_regions_reduced.loc[whisky_regions_reduced['Region'] == 'Islay']
+campbeltown = whisky_regions_reduced.loc[whisky_regions_reduced['Region'] == 'Campbeltown']
+speyside = whisky_regions_reduced.loc[whisky_regions_reduced['Region'] == 'Speyside']
 
-print(lowlands)
-exit()
+speyside = whisky_regions_reduced.loc[0]
+speyside_list = list(speyside)
+speyside_list = speyside_list[1:]
 
-result1 = 1 - spatial.distance.cosine(d1_a, d2_a)
-result2 = 1 - spatial.distance.cosine(d1_b, d2_b)
+highlands = whisky_regions_reduced.loc[1]
+highlands_list = list(highlands)
+highlands_list = highlands_list[1:]
 
-r = result1 + result2 - 1
+lowlands = whisky_regions_reduced.loc[2]
+lowlands_list = list(lowlands)
+lowlands_list = lowlands_list[1:]
 
-print(r)
+islay = whisky_regions_reduced.loc[3]
+islay_list = list(islay)
+islay_list = islay_list[1:]
+
+campbeltown = whisky_regions_reduced.loc[4]
+campbeltown_list = list(campbeltown)
+campbeltown_list = campbeltown_list[1:]
+
+whisky_region_values_list = [speyside_list,highlands_list,lowlands_list,islay_list,campbeltown_list]
+region_labels_list = whisky_regions_labels['Region'].tolist()
+
+
+results = []
+i = 0
+
+for whisky_list_a in whisky_region_values_list:
+    results.append(region_labels_list[i])
+    for whisky_list_b in whisky_region_values_list:
+        result = 1 - spatial.distance.cosine(whisky_list_a, whisky_list_b)
+        results.append(result)
+    i +=1
+print(results)        
+
+
 
 
 # # y = np.ravel(y)
