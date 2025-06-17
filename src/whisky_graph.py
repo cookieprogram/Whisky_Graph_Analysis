@@ -9,26 +9,27 @@ from sklearn.linear_model import LogisticRegression
 
 import geopy.distance
 
-df = pd.read_csv("../datasets/whisky_distilieries.csv")
+# Read Whisky Regions Dataset
+whisky_regions = pd.read_csv("../datasets/Whisky_Regions_Dataset.csv")
+whisky_regions_features = whisky_regions[['Body','Sweetness','Smokey','Medicinal','Tobacco','Honey','Spicy','Winey','Nutty','Malty','Fruity','Floral']]
+whisky_regions_labels = whisky_regions[['Region']]
 
-partial_df = df[['Distillery','Body','Sweetness','Smoky','Medicinal','Tobacco','Honey','Spicy','Winey','Nutty','Malty','Fruity','Floral']]
-partial_df.to_csv("Partial_Data.csv")
+# Read Whisky Distileries Dataset
+whisky_distileries = pd.read_csv("../datasets/whisky_distilieries.csv")
+whisky_distileries_features = whisky_distileries[['Body','Sweetness','Smoky','Medicinal','Tobacco','Honey','Spicy','Winey','Nutty','Malty','Fruity','Floral']]
+whisky_distileries_labels = whisky_distileries[['Distillery']]
 
-df_features = df[['Body','Sweetness','Smoky','Medicinal','Tobacco','Honey','Spicy','Winey','Nutty','Malty','Fruity','Floral']]
-df_labels = df[['Distillery']]
-
-names = ['Body','Sweetness','Smoky','Medicinal','Tobacco','Honey','Spicy','Winey','Nutty','Malty','Fruity','Floral']
+partial_df = whisky_distileries[['Distillery','Body','Sweetness','Smoky','Medicinal','Tobacco','Honey','Spicy','Winey','Nutty','Malty','Fruity','Floral']]
+partial_df.to_csv("Partial_Distilery_Data.csv")
 
 
-# Load dataset
-X = df_features
-y = df_labels
-feature_names = df_labels
+# Whisky feature labels
+feature_names = ['Body','Sweetness','Smoky','Medicinal','Tobacco','Honey','Spicy','Winey','Nutty','Malty','Fruity','Floral']
 
-y = np.ravel(y)
+# y = np.ravel(y)
 # Train a RandomForestClassifier
-clf = RandomForestClassifier(n_estimators=100)
-clf.fit(X, y)
+clf = RandomForestClassifier(n_estimators=1000)
+clf.fit(whisky_regions_features, whisky_regions_labels)
 
 
 # Get feature importances
@@ -36,8 +37,9 @@ importances = clf.feature_importances_
 
 
 plt.figure(figsize=(10, 6))
-plt.bar(names, importances)
+plt.bar(feature_names, importances)
 plt.show()
+exit()
 
 # from scipy import spatial
 
